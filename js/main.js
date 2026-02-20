@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
     const errorMsg = document.getElementById('error-msg');
     const modalDesc = document.getElementById('modal-desc');
+    const modalTitle = document.querySelector('.modal-header h3');
     
     // Кнопки, открывающие авторизацию
     const authTriggers = document.querySelectorAll('.open-auth');
@@ -13,11 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalTexts = {
         'volunteer': {
             title: 'Вход для волонтёров',
-            desc: 'Авторизуйтесь, чтобы начать помогать'
+            desc: 'Авторизуйтесь, чтобы начать помогать и зарабатывать баллы'
         },
         'parent': {
             title: 'Вход для родственников',
-            desc: 'Авторизуйтесь, чтобы подключить близкого'
+            desc: 'Авторизуйтесь, чтобы подключить близкого и следить за помощью'
         },
         'senior': {
             title: 'Вход для получения помощи',
@@ -43,18 +44,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const texts = modalTexts[role] || modalTexts.volunteer;
             
             if (modal) {
-                document.querySelector('.modal-header h3').textContent = texts.title;
+                if (modalTitle) modalTitle.textContent = texts.title;
                 if (modalDesc) modalDesc.textContent = texts.desc;
                 modal.classList.add('active');
                 if (errorMsg) errorMsg.textContent = '';
                 if (loginForm) loginForm.reset();
+                
+                // Блокировка скролла
+                document.body.style.overflow = 'hidden';
             }
         });
     });
 
     // Закрытие модалки
     const closeModal = () => {
-        if (modal) modal.classList.remove('active');
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     };
 
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
@@ -76,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            const phone = document.getElementById('email')?.value.trim();
+            const email = document.getElementById('email')?.value.trim();
             const password = document.getElementById('password')?.value.trim();
 
             if (!email || !password) {
@@ -94,20 +101,48 @@ document.addEventListener('DOMContentLoaded', () => {
             const submitBtn = loginForm.querySelector('button[type="submit"]');
             if (submitBtn) {
                 submitBtn.disabled = true;
-                submitBtn.textContent = 'Загрузка...';
+                submitBtn.innerHTML = '<span style="opacity: 0.7;">Загрузка...</span>';
             }
 
+            // Имитация загрузки
             setTimeout(() => {
                 // Находим целевую страницу из data-target ближайшей кнопки
                 const targetBtn = document.querySelector('.open-auth[data-target]');
                 const targetPage = targetBtn?.getAttribute('data-target') || 'index.html';
                 
-                // Для демо показываем успех и редиректим
-                alert('✅ Авторизация успешна! Добро пожаловать в Tatani.');
-                if (targetPage) {
-                    window.location.href = targetPage;
+                // Анимация успеха
+                if (errorMsg) {
+                    errorMsg.textContent = 'Успешно! Перенаправляем...';
+                    errorMsg.style.color = '#0F5E46';
                 }
+                
+                // Для демо показываем успех и редиректим
+                setTimeout(() => {
+                    window.location.href = targetPage;
+                }, 500);
             }, 1000);
         });
     }
+    
+    // Анимация для карточек
+    const cards = document.querySelectorAll('.dash-card, .step-card, .action-btn');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transition = 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)';
+        });
+    });
+    
+    // Плавный скролл для якорей
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 });

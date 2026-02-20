@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мой профиль — Tatani</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body class="mode-parents">
 
     <header class="internal-header">
-        <a href="index.html" class="btn-back">← Выйти</a>
+        <a href="index.html" class="btn-back">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Выйти
+        </a>
         <div class="logo">Tatani <span class="dot">•</span> Семья</div>
     </header>
 
@@ -38,9 +45,9 @@
         </div>
 
         <div class="tasks-preview">
-            <h3 style="margin-bottom: 15px;">Последние отчёты</h3>
+            <h3>Последние отчёты</h3>
             <div class="task-item">
-                <span class="task-tag done">✓ Выполнено</span>
+                <span class="task-tag">Выполнено</span>
                 <div>
                     <strong>Покупка продуктов</strong>
                     <p>Сегодня, 14:30 • Фотоотчёт прикреплён</p>
@@ -48,20 +55,34 @@
                 <button class="btn-small">Посмотреть</button>
             </div>
             <div class="task-item">
-                <span class="task-tag active">В процессе</span>
+                <span class="task-tag">В процессе</span>
                 <div>
                     <strong>Сопровождение к врачу</strong>
                     <p>Завтра, 10:00 • Помощник: Елена</p>
                 </div>
                 <button class="btn-small">Детали</button>
             </div>
+            <div class="task-item">
+                <span class="task-tag">Выполнено</span>
+                <div>
+                    <strong>Уборка квартиры</strong>
+                    <p>Вчера, 15:00 • Отчёт готов</p>
+                </div>
+                <button class="btn-small">Посмотреть</button>
+            </div>
         </div>
 
         <div class="cta-block">
-            <button class="cta-big">Заказать новую помощь</button>
+            <button class="cta-big">
+                Заказать новую помощь
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+            </button>
             <p class="small-text">Или настройте регулярные задачи в разделе «Расписание»</p>
         </div>
     </div>
 
+    <script src="js/main.js"></script>
 </body>
 </html>

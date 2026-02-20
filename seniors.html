@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tatani — Помощь рядом</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body class="mode-seniors">
 
     <header class="internal-header">
-        <a href="index.html" class="btn-back">← Назад</a>
+        <a href="index.html" class="btn-back">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Назад
+        </a>
         <div class="logo">Tatani</div>
     </header>
 
@@ -21,15 +28,14 @@
             Всё просто, безопасно и бесплатно.
         </p>
 
-        <h3 style="color: var(--color-emerald); margin: 40px 0 20px;">Как попросить помощь</h3>
         <div class="simple-steps">
             <div class="simple-step">
                 <span class="step-circle">1</span>
-                <p>Нажмите кнопку «Попросить помощь» — и опишите вашу задачу в одном сообщении.</p>
+                <p>Нажмите кнопку «Попросить помощь»</p>
             </div>
             <div class="simple-step">
                 <span class="step-circle">2</span>
-                <p>Скажите, что нужно сделать (купить хлеб, убрать снег, помочь с телефоном)</p>
+                <p>Опишите вашу задачу (купить хлеб, убрать снег, помочь с телефоном)</p>
             </div>
             <div class="simple-step">
                 <span class="step-circle">3</span>
@@ -38,25 +44,39 @@
         </div>
 
         <div class="trust-section">
-            <h3 style="margin-bottom: 20px;">Почему нам можно доверять</h3>
+            <h3>Почему нам можно доверять</h3>
             <div class="trust-grid">
                 <div class="trust-item">
                     <span class="trust-icon">✓</span>
-                    <div><strong>Проверенные люди</strong><p>Все помощники прошли проверку документов</p></div>
+                    <div>
+                        <strong>Проверенные люди</strong>
+                        <p>Все помощники прошли проверку документов</p>
+                    </div>
                 </div>
                 <div class="trust-item">
                     <span class="trust-icon">★</span>
-                    <div><strong>Отзывы соседей</strong><p>Вы видите оценки и комментарии других людей</p></div>
+                    <div>
+                        <strong>Отзывы соседей</strong>
+                        <p>Вы видите оценки и комментарии других людей</p>
+                    </div>
                 </div>
                 <div class="trust-item">
                     <span class="trust-icon">♥</span>
-                    <div><strong>Поддержка по телефону</strong><p>Позвоните нам в любой момент: 8 (800) 000-00-00</p></div>
+                    <div>
+                        <strong>Поддержка по телефону</strong>
+                        <p>Позвоните нам в любой момент: 8 (800) 000-00-00</p>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="cta-block">
-            <button class="cta-big open-auth" data-target="grandparents_main.html">Войти и попросить помощь</button>
+            <button class="cta-big open-auth" data-target="grandparents_main.html">
+                Войти и попросить помощь
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                </svg>
+            </button>
             <p class="support-text">Или позвоните: <strong>8 (800) 000-00-00</strong></p>
         </div>
     </div>
@@ -82,11 +102,11 @@
                 <button type="submit" class="cta-big full-width">Продолжить</button>
             </form>
             <p class="small-text" style="text-align: center; margin-top: 15px;">
-                Нет пароля? <a href="#" style="color: var(--color-emerald);">Получить код</a>
+                Нет аккаунта? <a href="#" style="color: var(--color-emerald);">Зарегистрироваться</a>
             </p>
         </div>
     </div>
 
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
