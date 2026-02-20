@@ -1527,3 +1527,47 @@ body {
         padding: 3px 8px;
     }
 }
+
+/* Логотип */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 48px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* Адаптация для планшетов */
+@media (max-width: 768px) {
+    .logo img {
+        height: 40px;
+    }
+}
+
+/* Адаптация для телефонов */
+@media (max-width: 480px) {
+    .logo img {
+        height: 32px;
+    }
+}
+
+/* Для пожилых (у них крупнее всё) */
+body.mode-seniors .logo img {
+    height: 56px;
+}
+
+@media (max-width: 768px) {
+    body.mode-seniors .logo img {
+        height: 48px;
+    }
+}
+
+@media (max-width: 480px) {
+    body.mode-seniors .logo img {
+        height: 40px;
+    }
+}
