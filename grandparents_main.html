@@ -4,49 +4,344 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Моя помощь — Tatani</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем шрифт Inter для чистого вида -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-emerald: #0F5E46;
+            --color-emerald-light: #1a7a5c;
+            --color-gold: #E6B800;
+            --color-dark: #1a1a1a;
+            --color-light: #f4f7f5;
+            --color-white: #ffffff;
+            --color-text: #2c3e50;
+            --color-text-light: #546e7a;
+            --shadow-soft: 0 10px 30px rgba(15, 94, 70, 0.08);
+            --shadow-hover: 0 15px 40px rgba(15, 94, 70, 0.15);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            
+            --base-font-size: 18px;
+            --heading-size: 2.5rem;
+        }
+
+        /* Настройки для режима Seniors (крупный текст) */
+        body.mode-seniors {
+            --base-font-size: 24px;
+            --heading-size: 3.2rem;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: var(--base-font-size);
+            color: var(--color-text);
+            background-color: var(--color-light);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* === HEADER === */
+        .internal-header {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: var(--color-emerald);
+            letter-spacing: -0.5px;
+        }
+
+        .btn-back {
+            text-decoration: none;
+            color: var(--color-emerald);
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: 0.3s;
+            background: rgba(15, 94, 70, 0.05);
+        }
+        .btn-back:hover { 
+            background: var(--color-emerald); 
+            color: white; 
+            transform: translateX(-3px);
+        }
+
+        /* === CONTAINER === */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        /* === WELCOME BANNER === */
+        .welcome-banner {
+            background: linear-gradient(135deg, var(--color-emerald), #2a8f6f);
+            color: white;
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 50px;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Декоративный круг на фоне */
+        .welcome-banner::after {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .welcome-banner h1 { 
+            margin-bottom: 15px; 
+            font-weight: 800;
+            line-height: 1.1;
+        }
+        .welcome-banner p { 
+            opacity: 0.9; 
+            font-size: 1.1em;
+            max-width: 600px;
+        }
+
+        /* === ACTION BUTTONS === */
+        .simple-actions {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding: 30px;
+            background: var(--color-white);
+            border: 2px solid transparent;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            text-align: left;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(15, 94, 70, 0.1);
+        }
+        
+        .action-btn:active {
+            transform: translateY(-2px);
+        }
+
+        /* Стиль иконки */
+        .action-icon {
+            width: 60px;
+            height: 60px;
+            background: #E8F5E9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--color-emerald);
+            transition: 0.3s;
+        }
+
+        .action-btn:hover .action-icon {
+            background: var(--color-emerald);
+            color: white;
+        }
+
+        .action-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: currentColor;
+        }
+
+        .action-text {
+            font-weight: 700;
+            font-size: 1.2em;
+            color: var(--color-dark);
+        }
+
+        /* === TRUST REMINDER === */
+        .trust-reminder {
+            background: #fff;
+            border-left: 6px solid var(--color-gold);
+            padding: 25px 30px;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .trust-icon-box {
+            min-width: 50px;
+            height: 50px;
+            background: #FFF8E1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gold);
+        }
+
+        .trust-reminder p {
+            margin: 0;
+            line-height: 1.4;
+        }
+        .trust-reminder strong {
+            color: var(--color-emerald);
+            font-size: 1.1em;
+        }
+
+        /* === CTA BLOCK === */
+        .cta-block {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .cta-big {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: var(--color-emerald);
+            color: white;
+            width: 100%;
+            max-width: 500px;
+            padding: 25px 40px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(15, 94, 70, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-big:hover {
+            background: var(--color-emerald-light);
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px rgba(15, 94, 70, 0.5);
+        }
+        
+        .cta-big svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .support-text {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: var(--color-text-light);
+            font-weight: 500;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 600px) {
+            .internal-header { padding: 15px 20px; }
+            .container { padding: 20px 15px 60px; }
+            .welcome-banner { padding: 30px 20px; }
+            .action-btn { padding: 20px; gap: 15px; }
+            .action-icon { width: 50px; height: 50px; }
+            .action-icon svg { width: 26px; height: 26px; }
+            .trust-reminder { flex-direction: column; text-align: center; border-left: none; border-top: 6px solid var(--color-gold); border-radius: var(--radius-md); }
+            .cta-big { font-size: 1.1rem; padding: 20px; }
+        }
+    </style>
 </head>
 <body class="mode-seniors">
 
     <header class="internal-header">
-        <a href="index.html" class="btn-back">← Выйти</a>
+        <a href="index.html" class="btn-back">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Назад
+        </a>
         <div class="logo">Tatani</div>
     </header>
 
     <div class="container internal-content">
+        
         <div class="welcome-banner">
             <h1>Здравствуйте!</h1>
-            <p>Мы рады, что вы с нами. Чем можем помочь сегодня?</p>
+            <p>Мы рады видеть вас. Выберите, чем мы можем помочь вам сегодня.</p>
         </div>
 
         <div class="simple-actions">
+            <!-- Кнопка 1: Продукты -->
             <button class="action-btn big">
-                <span class="action-icon"></span>
+                <span class="action-icon">
+                    <!-- SVG Корзина -->
+                    <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                </span>
                 <span class="action-text">Купить продукты</span>
             </button>
+
+            <!-- Кнопка 2: Дом -->
             <button class="action-btn big">
-                <span class="action-icon"></span>
+                <span class="action-icon">
+                    <!-- SVG Дом -->
+                    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                </span>
                 <span class="action-text">Помощь по дому</span>
             </button>
+
+            <!-- Кнопка 3: Врач -->
             <button class="action-btn big">
-                <span class="action-icon"></span>
-                <span class="action-text">К врачу</span>
+                <span class="action-icon">
+                    <!-- SVG Сердце/Медицина -->
+                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </span>
+                <span class="action-text">Запись к врачу</span>
             </button>
+
+            <!-- Кнопка 4: Общение -->
             <button class="action-btn big">
-                <span class="action-icon"></span>
+                <span class="action-icon">
+                    <!-- SVG Сообщение -->
+                    <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+                </span>
                 <span class="action-text">Просто побеседовать</span>
             </button>
         </div>
 
         <div class="trust-reminder">
-            <p><strong>Помните:</strong> все наши помощники проверены. Вы всегда можете позвонить нам: <br><strong>8 (800) 000-00-00</strong></p>
+            <div class="trust-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+            </div>
+            <p>Помните: все наши помощники прошли проверку службы безопасности. <br>Вы всегда можете позвонить нам: <br>8 (800) 000-00-00</br></p>
         </div>
-
-        <div class="cta-block">
-            <button class="cta-big red-btn">ПОЗВОНИТЬ ОПЕРАТОРУ</button>
-            <p class="support-text">Круглосуточно. Бесплатно. По всей России.</p>
-        </div>
-    </div>
-
-</body>
-</html>
