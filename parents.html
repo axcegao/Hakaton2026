@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tatani — Забота о близких</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="mode-parents">
+
+    <header class="internal-header">
+        <a href="index.html" class="btn-back">← На главную</a>
+        <div class="logo">Tatani <span class="dot">•</span> Family</div>
+    </header>
+
+    <div class="container internal-content">
+        <h1>Спокойствие за родителей — это просто</h1>
+        
+        <p class="lead">
+            Tatani — сервис проверенной помощи пожилым людям. 
+            Подключите маму или папу, чтобы они получали поддержку, а вы — спокойствие.
+        </p>
+
+        <h3 style="color: var(--color-emerald); margin: 40px 0 20px;">Как это работает</h3>
+        <div class="steps-grid">
+            <div class="step-card">
+                <span class="step-num">1</span>
+                <h4>Создаёте профиль</h4>
+                <p>Укажите данные родителя, адрес и тип помощи, которая нужна.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-num">2</span>
+                <h4>Выбираете задачу</h4>
+                <p>Покупка продуктов, уборка, сопровождение к врачу или просто беседа.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-num">3</span>
+                <h4>Контролируете результат</h4>
+                <p>Получайте уведомления и фотоотчёты о выполненных задачах в приложении.</p>
+            </div>
+        </div>
+
+        <div class="trust-section">
+            <h3 style="margin-bottom: 20px;">Почему нам доверяют</h3>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <span class="trust-icon">✓</span>
+                    <div><strong>Строгая проверка</strong><p>Все помощники проходят проверку паспорта и судимостей</p></div>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">★</span>
+                    <div><strong>Прозрачные отчёты</strong><p>Вы видите, кто и как выполнил задачу — с фото</p></div>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">♥</span>
+                    <div><strong>Страховка и поддержка</strong><p>Каждая задача застрахована. Кураторы на связи 24/7</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-block">
+            <button class="cta-big open-auth" data-target="parent_main.html">Войти и подключить маму</button>
+            <p class="small-text">Первая помощь — бесплатно. Настройка займёт 5 минут.</p>
+        </div>
+    </div>
+
+    <!-- Модальное окно авторизации -->
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal">&times;</button>
+            <div class="modal-header">
+                <h3>Вход для родственников</h3>
+                <p id="modal-desc">Авторизуйтесь, чтобы подключить близкого</p>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Ваша почта</label>
+                    <input type="email" id="email" placeholder="email@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" placeholder="••••••••">
+                </div>
+                <div id="error-msg" class="error-msg"></div>
+                <button type="submit" class="cta-big full-width">Войти</button>
+            </form>
+            <p class="small-text" style="text-align: center; margin-top: 15px;">
+                Нет аккаунта? <a href="#" style="color: var(--color-emerald);">Зарегистрироваться</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

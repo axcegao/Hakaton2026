@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tatani — Помощь рядом</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="mode-seniors">
+
+    <header class="internal-header">
+        <a href="index.html" class="btn-back">← Назад</a>
+        <div class="logo">Tatani</div>
+    </header>
+
+    <div class="container internal-content">
+        <h1>Нужна помощь? Мы рядом!</h1>
+        
+        <p class="lead">
+            Tatani — это добрые люди, которые помогут по дому, сходят в магазин или просто побеседуют. 
+            Всё просто, безопасно и бесплатно.
+        </p>
+
+        <h3 style="color: var(--color-emerald); margin: 40px 0 20px;">Как попросить помощь</h3>
+        <div class="simple-steps">
+            <div class="simple-step">
+                <span class="step-circle">1</span>
+                <p>Нажмите кнопку «Попросить помощь»</p>
+            </div>
+            <div class="simple-step">
+                <span class="step-circle">2</span>
+                <p>Скажите, что нужно сделать (купить хлеб, убрать снег, помочь с телефоном)</p>
+            </div>
+            <div class="simple-step">
+                <span class="step-circle">3</span>
+                <p>Ждите помощника — он придёт в течение часа</p>
+            </div>
+        </div>
+
+        <div class="trust-section">
+            <h3 style="margin-bottom: 20px;">Почему нам можно доверять</h3>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <span class="trust-icon">✓</span>
+                    <div><strong>Проверенные люди</strong><p>Все помощники прошли проверку документов</p></div>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">★</span>
+                    <div><strong>Отзывы соседей</strong><p>Вы видите оценки и комментарии других людей</p></div>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">♥</span>
+                    <div><strong>Поддержка по телефону</strong><p>Позвоните нам в любой момент: 8 (800) 000-00-00</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-block">
+            <button class="cta-big red-btn open-auth" data-target="grandparents_main.html">Войти и попросить помощь</button>
+            <p class="support-text">Или позвоните: <strong>8 (800) 000-00-00</strong></p>
+        </div>
+    </div>
+
+    <!-- Модальное окно авторизации (упрощённое) -->
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal">&times;</button>
+            <div class="modal-header">
+                <h3>Вход для получения помощи</h3>
+                <p id="modal-desc">Введите номер телефона, чтобы мы могли с вами связаться</p>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Ваша почта</label>
+                    <input type="email" id="email" placeholder="email@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль (если есть)</label>
+                    <input type="password" id="password" placeholder="••••••••">
+                </div>
+                <div id="error-msg" class="error-msg"></div>
+                <button type="submit" class="cta-big full-width">Продолжить</button>
+            </form>
+            <p class="small-text" style="text-align: center; margin-top: 15px;">
+                Нет пароля? <a href="#" style="color: var(--color-emerald);">Получить код</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

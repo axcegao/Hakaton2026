@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tatani — Волонтёрам</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="mode-youth">
+
+    <header class="internal-header">
+        <a href="index.html" class="btn-back">← На главную</a>
+        <div class="logo">Tatani <span class="dot">•</span> Youth</div>
+    </header>
+
+    <div class="container internal-content">
+        <h1>Ты можешь больше, чем думаешь</h1>
+        
+        <p class="lead">
+            Tatani — это комьюнити активных людей Башкортостана. 
+            Помогай соседям, получай опыт, знакомься и меняй мир к лучшему.
+        </p>
+
+        <h3 style="color: var(--color-emerald); margin: 40px 0 20px;">Как это работает</h3>
+        <div class="steps-grid">
+            <div class="step-card">
+                <span class="step-num">1</span>
+                <h4>Регистрируешься</h4>
+                <p>За 2 минуты через VK или Госуслуги. Никаких сложных анкет.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-num">2</span>
+                <h4>Выбираешь задачу</h4>
+                <p>Выгул собаки, помощь на мероприятии, доставка продуктов — ты решаешь.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-num">3</span>
+                <h4>Получаешь бонусы</h4>
+                <p>Копи баллы, повышай рейтинг и обменивай очки на мерч и скидки.</p>
+            </div>
+        </div>
+
+        <div class="trust-section">
+            <h3 style="margin-bottom: 20px;">Почему нам доверяют</h3>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <span class="trust-icon">✓</span>
+                    <div><strong>Проверенные люди</strong><p>Все волонтёры проходят верификацию</p></div>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">★</span>
+                    <div><strong>Рейтинг и отзывы</strong><p>Прозрачная система оценок</p></div>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">♥</span>
+                    <div><strong>Поддержка 24/7</strong><p>Кураторы на связи в чате</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-block">
+            <button class="cta-big open-auth" data-target="teen_main.html">Войти и начать помогать</button>
+            <p class="small-text">Это бесплатно. Займёт 2 минуты.</p>
+        </div>
+    </div>
+
+    <!-- Модальное окно авторизации -->
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal">&times;</button>
+            <div class="modal-header">
+                <h3>Вход для волонтёров</h3>
+                <p id="modal-desc">Авторизуйтесь, чтобы начать помогать</p>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Ваша почта</label>
+                    <input type="email" id="email" placeholder="email@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" placeholder="••••••••">
+                </div>
+                <div id="error-msg" class="error-msg"></div>
+                <button type="submit" class="cta-big full-width">Войти</button>
+            </form>
+            <p class="small-text" style="text-align: center; margin-top: 15px;">
+                Нет аккаунта? <a href="#" style="color: var(--color-emerald);">Зарегистрироваться</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
