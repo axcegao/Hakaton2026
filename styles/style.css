@@ -1,8 +1,8 @@
 :root {
-    --color-emerald: #0F5E46;
-    --color-emerald-light: #1a7a5c;
+    --color-emerald: #81d781;
+    --color-emerald-light: #4f86cb;
     --color-emerald-soft: #e8f3ef;
-    --color-gold: #E6B800;
+    --color-gold: #f4bf4c;
     --color-gold-light: #fff4d6;
     --color-dark: #1a1a1a;
     --color-light: #f8faf9;
@@ -64,7 +64,7 @@ body {
 /* ===== SPLIT SCREEN (для index.html) ===== */
 .split-screen {
     display: flex;
-    height: 100vh;
+    height: calc(100vh - 89px);
     width: 100%;
     position: relative;
 }
@@ -972,6 +972,28 @@ body {
     line-height: 1.6;
 }
 
+.footer{
+    padding: 60px 0 40px;
+    background-color: #D5D5D5;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+}
+.link{
+    margin-left: 40px;   
+        opacity: 0.6; 
+}
+.first{
+    margin-left: 0;    
+}
+a.link{
+    color: black;
+}
+a{
+    
+    text-decoration: none;
+}
 /* ===== ANIMATIONS ===== */
 @keyframes shake {
     0%, 100% { transform: translateX(0); }
@@ -990,7 +1012,7 @@ body {
     /* Index page */
     .split-screen {
         flex-direction: column;
-        height: 100vh;
+        height: calc(100vh-65px);
     }
     
     .split {
